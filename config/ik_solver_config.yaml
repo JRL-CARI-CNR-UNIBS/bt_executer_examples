@@ -8,7 +8,7 @@ comau_ik_solver:
   base_frame: comau_base_link # base frame of the chain
   flange_frame: comau_flange # end frame of the chain
 
-  tool_frame: comau_flange # destination frame of the IK (it should be rigid attached to flange_frame)
+  tool_frame: comau_link_6 # destination frame of the IK (it should be rigid attached to flange_frame)
   desired_solutions: 32 # number of desired solution
   joint_names:
   - comau_joint_1

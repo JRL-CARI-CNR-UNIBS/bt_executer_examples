@@ -32,13 +32,32 @@ def generate_launch_description():
         ],
         shell=False
       ),
-
-    IncludeLaunchDescription(
+      
+   
+    TimerAction(
+      period=1.0,  # delay in seconds
+      actions=[
+      IncludeLaunchDescription(
       PythonLaunchDescriptionSource(
         PathJoinSubstitution([FindPackageShare('ik_solver'),"launch","ik_solver.launch.py"])),
          launch_arguments={'file': PathJoinSubstitution([config_folder,"ik_solver_config.yaml"])}.items()
-     ),
+         )
+      ]
+    ),
 
+    #Foo tf to use move_to_skill
+    TimerAction(
+      period=1.0,  # delay in seconds
+      actions=[
+         Node(
+           package="tf2_ros",
+           executable="static_transform_publisher",
+           name="foo_static_tf",
+           arguments=["0.3","0","0","0","0","0","comau_link_6","foo_location"],
+           output="screen")
+      ]
+    ),
+     
     TimerAction(
       period=5.0,  # delay in seconds
       actions=[
