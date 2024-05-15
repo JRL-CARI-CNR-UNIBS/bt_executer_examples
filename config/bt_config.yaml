@@ -1,0 +1,4 @@
+bt_executer:
+  plugins:  ["trajectory_loader_plugin", "move_to_plugin", "wait_plugin"]
+  bt_package: "bt_executer_examples"
+  bt_name: "test_tree.xml"
