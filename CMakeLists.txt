@@ -2,8 +2,10 @@ cmake_minimum_required(VERSION 3.8)
 project(bt_executer_examples)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  add_compile_options(-Wall -Wextra -Wpedantic)
+  add_compile_options(-funroll-loops -Wall -Ofast)
 endif()
+
+set(CMAKE_CXX_STANDARD 20)
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
