@@ -10,8 +10,8 @@
             <!-- <SubTree ID="Subtree name"/> -->                            
 
             <MoveToSkill name="kuka_move_to_test" action_name= "/kuka_trajectory_loader/move_to" param_ns="kuka_move_to_test"/>
-            <WaitSkill name="kuka_wait_test" action_name= "/sleep_service" param_ns="kuka_wait_test"/> 
-            <TrajectoryLoaderSkill name="kuka_trajectory_loader_test" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trajectory_loader_test"/> 
+            <!-- <WaitSkill name="kuka_wait_test" action_name= "/sleep_service" param_ns="kuka_wait_test"/> 
+            <TrajectoryLoaderSkill name="kuka_trajectory_loader_test" action_name= "/kuka_trajectory_loader/trajectory_loader" param_ns="kuka_trajectory_loader_test"/>  -->
 
         </Sequence>
      </BehaviorTree>
