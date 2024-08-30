@@ -1,0 +1,20 @@
+ik_solver:
+  - package: "bt_executer_examples"
+    config: "config/ik_solver_config_kuka.yaml"
+    namespace: "rosdyn_ik_solver"
+
+rosdyn_ik_solver:
+  type: ik_solver::RosdynIkSolver  #ik_solver/KukaIkSolver ##ik_solver::RosdynIkSolver 
+  base_frame: kuka_base_link_outgoing_z #kuka_base_link # base frame of the chain #structure_base_link #
+  flange_frame: kuka_flange #kuka_flange # end frame of the chain ##kuka_sensor
+
+  tool_frame: kuka_flange # destination frame of the IK (it should be rigid attached to flange_frame)
+  desired_solutions: 32 # number of desired solution
+  joint_names:
+  # - structure_joint_1
+  - kuka_joint1
+  - kuka_joint2
+  - kuka_joint3
+  - kuka_joint4
+  - kuka_joint5
+  - kuka_joint6
