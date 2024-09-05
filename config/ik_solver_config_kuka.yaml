@@ -1,20 +1,103 @@
-ik_solver:
-  - package: "bt_executer_examples"
-    config: "config/ik_solver_config_kuka.yaml"
-    namespace: "rosdyn_ik_solver"
-
 rosdyn_ik_solver:
-  type: ik_solver/KukaIkSolver ##ik_solver::RosdynIkSolver 
-  base_frame: kuka_base_link_outgoing_z #kuka_base_link # base frame of the chain #structure_base_link #
-  flange_frame: kuka_flange #kuka_flange # end frame of the chain ##kuka_sensor
-
-  tool_frame: kuka_flange # destination frame of the IK (it should be rigid attached to flange_frame)
-  desired_solutions: 32 # number of desired solution
+  type: ik_solver/RosdynIkSolver
+  base_frame: world # base frame of the chain
+  flange_frame: kuka_flange # end frame of the chain
+  max_stall_iterations: 1000
+  min_stall_iterations: 50
+  parallel_ik_mode: 1
+  tool_frame: kuka_sensor # destination frame of the IK (it should be rigid attached to flange_frame)
+  desired_solutions: 20 # number of desired solution
   joint_names:
-  #- structure_joint_1
+  - structure_joint_1
   - kuka_joint1
   - kuka_joint2
   - kuka_joint3
   - kuka_joint4
   - kuka_joint5
   - kuka_joint6
+
+# robot_on_guide_ik_solver:
+#   type: ik_solver/RobotOnGuideIkSolver
+#   base_frame: world # base frame of the chain
+#   robot_base_frame: kuka_base_link # robot base frame
+#   flange_frame: kuka_flange # end frame of the chain
+#   tool_frame: kuka_flange # destination frame of the IK (it should be rigid attached to flange_frame)
+#   desired_solutions: 1000 # number of desired solution
+#   max_stall_iterations: 1000
+#   min_stall_iterations: 50
+#   parallel_ik_mode: 2
+#   joint_names:
+#   - structure_joint_1
+#   - kuka_joint1
+#   - kuka_joint2
+#   - kuka_joint3
+#   - kuka_joint4
+#   - kuka_joint5
+#   - kuka_joint6
+#
+#   mounted_robot_ik: # parameter for the mounted_robot
+#     type: ik_solver/KukaIkSolver
+#     base_frame: kuka_base_link # base frame of the chain
+#     flange_frame: kuka_flange # end frame of the chain
+#
+#     tool_frame: kuka_flange # destination frame of the IK (it should be rigid attached to flange_frame)
+#     desired_solutions: 32 # number of desired solution
+#     max_stall_iterations: 1000
+#     min_stall_iterations: 50
+#     parallel_ik_mode: 2
+#     joint_names:
+#     - kuka_joint1
+#     - kuka_joint2
+#     - kuka_joint3
+#     - kuka_joint4
+#     - kuka_joint5
+#     - kuka_joint6
+
+#ik_solver:
+#  - package: "bt_executer_examples"
+#    config: "config/ik_solver_config_kuka.yaml"
+#    namespace: "rosdyn_ik_solver"
+#
+## rosdyn_ik_solver:
+##   type: ik_solver/KukaIkSolver ##ik_solver::RosdynIkSolver
+##   base_frame: kuka_base_link_outgoing_z #kuka_base_link # base frame of the chain #structure_base_link #
+##   flange_frame: kuka_flange #kuka_flange # end frame of the chain ##kuka_sensor
+##
+##   tool_frame: kuka_flange # destination frame of the IK (it should be rigid attached to flange_frame)
+##   desired_solutions: 32 # number of desired solution
+##   joint_names:
+##   #- structure_joint_1
+##   - kuka_joint1
+##   - kuka_joint2
+##   - kuka_joint3
+##   - kuka_joint4
+##   - kuka_joint5
+##   - kuka_joint6
+#
+#
+#rosdyn_ik_solver:
+#  base_frame: world # base frame of the chain
+#  robot_base_frame: kuka_base_link_outgoing_z # robot base frame
+#  flange_frame: kuka_flange # end frame of the chain
+#  tool_frame: kuka_flange # destination frame of the IK (it should be rigid attached to flange_frame)
+#  type: ik_solver/RobotOnGuideIkSolver
+#  desired_solutions: 1000 # number of desired solution
+#  max_stall_iterations: 100
+#  min_stall_iterations: 50
+#  parallel_ik_mode: false
+#  joint_names:
+#  - structure_joint_1
+#  - kuka_joint1
+#  - kuka_joint2
+#  - kuka_joint3
+#  - kuka_joint4
+#  - kuka_joint5
+#  - kuka_joint6
+#
+#  mounted_robot_ik: # parameter for the mounted_robot
+#    type: ik_solver/KukaIkSolver
+#    base_frame: kuka_base_link_outgoing_z # robot base frame
+#    flange_frame: kuka_flange # end frame of the chain
+#    tool_frame: kuka_flange # destination frame of the IK (it should be rigid attached to flange_frame)
+#    desired_solutions: 4 # number of desired solution for this chain
+#    #frames are taken from the first part of the yaml file.

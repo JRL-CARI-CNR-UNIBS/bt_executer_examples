@@ -14,12 +14,11 @@ bt_executer:
     scaling: 100
 
   kuka_move_to_test:
-      group_name: "kuka"
-      world_name: "world"
-      ik_service_name: "/rosdyn_ik_solver/get_ik" #"/kuka_ik_solver/get_ik" #"/rosdyn_ik_solver/get_ik"
-      location_name: "foo_location"
-      fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
-      simulation: False
-      speed_scaling_topic: "/kuka_speed_ovr"
-      scaling: 100
-  
+    group_name: "kuka"
+    world_name: "world"
+    ik_service_name: "/rosdyn_ik_solver/get_ik" #"/kuka_ik_solver/get_ik" #"/rosdyn_ik_solver/get_ik"
+    location_name: "foo_location"
+    fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+    simulation: False
+    speed_scaling_topic: "/kuka_speed_ovr"
+    scaling: 100

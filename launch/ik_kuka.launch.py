@@ -34,30 +34,14 @@ def generate_launch_description():
       ),
 
 
-
-    #Foo tf to use move_to_skill
-    TimerAction(
-      period=0.0,  # delay in seconds
-      actions=[
-         Node(
-           package="tf2_ros",
-           executable="static_transform_publisher",
-           name="foo_static_tf",
-           arguments=["0","0","-0.05","0","0","0","kuka_flange","foo_location"],
-           output="screen")
-      ]
-    ),
-
     TimerAction(
       period=1.0,  # delay in seconds
       actions=[
-        Node(
-          package="bt_executer",
-          executable="bt_executer_node",
-          output="screen",
-          namespace="bt_executer",
-          ros_arguments=["--log-level", "info"]
-        )
+      IncludeLaunchDescription(
+      PythonLaunchDescriptionSource(
+        PathJoinSubstitution([FindPackageShare('ik_solver'),"launch","ik_solver.launch.py"])),
+         launch_arguments={'config': PathJoinSubstitution([config_folder,"ik_solver_config_kuka.yaml"])}.items()
+         )
       ]
     )
 ])
