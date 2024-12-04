@@ -22,3 +22,8 @@ bt_executer:
     simulation: False
     speed_scaling_topic: "/kuka_speed_ovr"
     scaling: 100
+    pipeline_id: "ompl"
+    planner_id: "BiTRRT"
+    velocity_scaling_factor: 1
+    acceleration_scaling_factor: 1
+    joints_weights: [1,1,1,1,1,1]
