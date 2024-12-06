@@ -26,4 +26,17 @@ bt_executer:
     planner_id: "BiTRRT"
     velocity_scaling_factor: 1
     acceleration_scaling_factor: 1
-    joints_weights: [1,1,1,1,1,1]
+    joints_weights: [1,1,1,1,1,1,1]
+
+  kuka_move_to_conf_test:
+    group_name: "kuka"
+    fjt_action_name: "/kuka_scaled_fjt_controller/follow_joint_trajectory"
+    simulation: False
+    speed_scaling_topic: "/kuka_speed_ovr"
+    scaling: 100
+    pipeline_id: "ompl"
+    planner_id: "BiTRRT"
+    velocity_scaling_factor: 1
+    acceleration_scaling_factor: 1
+    joints_names: ["structure_joint_1","kuka_joint_1","kuka_joint_2","kuka_joint_3","kuka_joint_4","kuka_joint_5","kuka_joint_6"]
+    target_joints_configurations: [0.0,3.14,3.14,3.14,0.0,0.0,0.0]
