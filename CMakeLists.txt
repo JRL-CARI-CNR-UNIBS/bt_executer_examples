@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(bt_executer)
+find_package(bt_executer REQUIRED)
 
 # =======
 # INSTALL
